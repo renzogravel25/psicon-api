@@ -17,13 +17,13 @@ public class PsicologoController {
     @Autowired
     private PsicologoService psicologoService;
 
-    // GET - Listar todos los psicólogos activos
+
     @GetMapping
     public ResponseEntity<List<Psicologo>> listar() {
         return ResponseEntity.ok(psicologoService.listarActivos());
     }
 
-    // GET - Obtener psicólogo por ID
+
     @GetMapping("/{id}")
     public ResponseEntity<?> obtener(@PathVariable Long id) {
         try {
@@ -33,7 +33,7 @@ public class PsicologoController {
         }
     }
 
-    // POST - Crear nuevo psicólogo
+
     @PostMapping
     public ResponseEntity<?> crear(@RequestBody Psicologo psicologo) {
         try {
@@ -45,7 +45,7 @@ public class PsicologoController {
         }
     }
 
-    // PUT - Actualizar psicólogo
+
     @PutMapping("/{id}")
     public ResponseEntity<?> actualizar(@PathVariable Long id,
                                         @RequestBody Psicologo psicologo) {
@@ -57,7 +57,7 @@ public class PsicologoController {
         }
     }
 
-    // DELETE - Eliminar psicólogo (soft delete)
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
         try {

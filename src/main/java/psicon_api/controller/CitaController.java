@@ -18,20 +18,20 @@ public class CitaController {
     @Autowired
     private CitaService citaService;
 
-    // GET - Listar todas las citas
+
     @GetMapping
     public ResponseEntity<List<Cita>> listar() {
         return ResponseEntity.ok(citaService.listarTodas());
     }
 
-    // GET - Listar citas por usuario
+
     @GetMapping("/usuario/{usuarioId}")
     public ResponseEntity<List<Cita>> listarPorUsuario(
             @PathVariable Long usuarioId) {
         return ResponseEntity.ok(citaService.listarPorUsuario(usuarioId));
     }
 
-    // POST - Crear nueva cita
+
     @PostMapping
     public ResponseEntity<?> crear(@RequestBody CitaRequest request) {
         try {
@@ -43,7 +43,7 @@ public class CitaController {
         }
     }
 
-    // PUT - Actualizar estado de cita
+
     @PutMapping("/{id}/estado")
     public ResponseEntity<?> actualizarEstado(@PathVariable Long id,
                                               @RequestBody Map<String, String> body) {
@@ -57,7 +57,7 @@ public class CitaController {
         }
     }
 
-    // DELETE - Eliminar cita
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id) {
         try {
